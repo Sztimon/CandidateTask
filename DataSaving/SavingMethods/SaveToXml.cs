@@ -14,7 +14,7 @@ namespace DataSaving.SavingMethods
 
         public void Save(List<LogDTO> logDTO)
         {
-            var path = AppDomain.CurrentDomain.BaseDirectory + "App_Data\\SerializationOverview.xml";
+            var path = AppDomain.CurrentDomain.BaseDirectory + "App_Data\\XmlUserData.xml";
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
 

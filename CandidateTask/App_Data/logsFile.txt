@@ -1,1 +1,2 @@
 2017-10-18 19:16:46.7535|INFO|DataSaving.SavingMethods.SaveToLogs|Szymon, Kropisz
+2017-10-19 11:16:42.5345|INFO|DataSaving.SavingMethods.SaveToLogs|Jan , Kowalski
