@@ -1,0 +1,1 @@
+2017-10-18 19:16:46.7535|INFO|DataSaving.SavingMethods.SaveToLogs|Szymon, Kropisz
