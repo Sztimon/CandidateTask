@@ -17,12 +17,16 @@ namespace DataSaving.SavingMethods
 
         public void Save(List<LogDTO> logDTO) {
 
-            _context.Set<LogDTO>().AddRange(logDTO);
-            _context.ChangeTracker.DetectChanges();
-            _context.SaveChanges();
-
+            try
+            {
+                _context.Set<LogDTO>().AddRange(logDTO);
+                _context.ChangeTracker.DetectChanges();
+                _context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("{0} Exception caught.", e);
+            }
         }
-
-
     }
 }

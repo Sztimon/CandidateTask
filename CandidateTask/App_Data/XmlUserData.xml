@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LogDTO>
+  <Id>0</Id>
+  <Name>Szymon</Name>
+  <Surname>Kropisz</Surname>
+  <Id>1</Id>
+  <Name>Jan </Name>
+  <Surname>Kowalski</Surname>
+  <Id>2</Id>
+  <Name>TEST1</Name>
+  <Surname>TEST1</Surname>
+  <Id>3</Id>
+  <Name>TEST2</Name>
+  <Surname>TEST2</Surname>
+</LogDTO>

@@ -14,9 +14,16 @@ namespace DataSaving.SavingMethods
 
         public void Save(List<LogDTO> logDTO)
         {
-            foreach (var log in logDTO)
+            try
             {
-                logger.Info("{0}, {1}", log.Name, log.Surname);
+                foreach (var log in logDTO)
+                {
+                    logger.Info("{0}, {1}", log.Name, log.Surname);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("{0} Exception caught.", e);
             }
         }
     }

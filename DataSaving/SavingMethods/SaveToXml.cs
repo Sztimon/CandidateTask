@@ -18,41 +18,48 @@ namespace DataSaving.SavingMethods
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
 
-            if (File.Exists(path))
+            try
             {
-                XDocument xmlDoc = XDocument.Load(path);
-                
-                int index = xmlDoc.Descendants("Name").Count();
-                foreach (var log in logDTO)
+                if (File.Exists(path))
                 {
-                    XElement id = new XElement("Id", index);
-                    xmlDoc.Root.Add(id);
-                    XElement name = new XElement("Name", log.Name);
-                    xmlDoc.Root.Add(name);
-                    XElement surname = new XElement("Surname", log.Surname);
-                    xmlDoc.Root.Add(surname);
-                    index++;
-                }
-                xmlDoc.Save(path);
-            }
-            else
-            {
-                using (XmlWriter writer = XmlWriter.Create(path, settings))
-                {
-                    writer.WriteStartDocument();
-                    writer.WriteStartElement("LogDTO");
-                    int i = 0;
+                    XDocument xmlDoc = XDocument.Load(path);
+
+                    int index = xmlDoc.Descendants("Name").Count();
                     foreach (var log in logDTO)
                     {
-                        writer.WriteElementString("Id", i.ToString());
-                        writer.WriteElementString("Name", log.Name);
-                        writer.WriteElementString("Surname", log.Surname);
-                        i++;
+                        XElement id = new XElement("Id", index);
+                        xmlDoc.Root.Add(id);
+                        XElement name = new XElement("Name", log.Name);
+                        xmlDoc.Root.Add(name);
+                        XElement surname = new XElement("Surname", log.Surname);
+                        xmlDoc.Root.Add(surname);
+                        index++;
                     }
-                    writer.WriteEndElement();
-                    writer.Flush();
-                    writer.WriteEndDocument();
-                }              
+                    xmlDoc.Save(path);
+                }
+                else
+                {
+                    using (XmlWriter writer = XmlWriter.Create(path, settings))
+                    {
+                        writer.WriteStartDocument();
+                        writer.WriteStartElement("LogDTO");
+                        int i = 0;
+                        foreach (var log in logDTO)
+                        {
+                            writer.WriteElementString("Id", i.ToString());
+                            writer.WriteElementString("Name", log.Name);
+                            writer.WriteElementString("Surname", log.Surname);
+                            i++;
+                        }
+                        writer.WriteEndElement();
+                        writer.Flush();
+                        writer.WriteEndDocument();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("{0} Exception caught.", e);
             }
         }
     }
